@@ -33,7 +33,7 @@ let myLibrary = [
 
 /* Event Listeners */
 
-formSubmit.addEventListener('click',getUserInput);
+formSubmit.addEventListener('click',addBookToLibrary);
 
 /* Functions */
 
@@ -54,11 +54,12 @@ function Book(name,author,readStatus,publishedDate){
     this.publishedDate = publishedDate;
 }
 
-function addBookToLibrary(){
-    let userInput = getUserInput();
+function addBookToLibrary(e){
+    let userInput = getUserInput(e);
     let newBook = new Book(userInput[0],userInput[1],userInput[2],userInput[3]);
     myLibrary.push(newBook);
-    console.log(myLibrary);
+    displayLibrary();
+    closeModal();
 }
 
 function drawCard(bookName,authorName,readStatus,publishedDate){
@@ -81,7 +82,28 @@ function drawCard(bookName,authorName,readStatus,publishedDate){
 }
 
 function displayLibrary(){
+    libraryDisplay.innerHTML="";
     myLibrary.forEach((book)=>drawCard(book.name,book.author,book.readStatus,book.publishedDate));
 }
 
 displayLibrary();
+
+/* Modal Operation */
+
+var addBookButton = document.getElementById('add-btn');
+
+var modal = document.getElementById('modal');
+
+var closeModalButton = document.getElementsByClassName('close')[0];
+
+addBookButton.addEventListener('click',openModal);
+
+function openModal(){
+    modal.style.display = "block";
+}
+
+closeModalButton.addEventListener('click',closeModal);
+
+function closeModal(){
+    modal.style.display = "none";
+}

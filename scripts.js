@@ -1,4 +1,9 @@
+/* Global Variables */
+
 let libraryDisplay = document.getElementById('app');
+
+let formSubmit = document.querySelector('input[type=submit]');
+
 let myLibrary = [
     {
         name: "Harry Potter and the Philosopher's Stone",
@@ -26,12 +31,19 @@ let myLibrary = [
     }
 ];
 
+/* Event Listeners */
 
-function getUserInput(){
-    let bookName = prompt("Enter Book Name");
-    let authorName = prompt("Enter Author Name");
-    let readStatus = prompt("Have you read this book? (y/n)");
-    let publishedDate = prompt("Which year was the book published?");
+formSubmit.addEventListener('click',getUserInput);
+
+/* Functions */
+
+function getUserInput(e){
+    e.preventDefault();
+    let bookName = document.getElementById('bname').value;
+    console.log(bookName);
+    let authorName = document.getElementById('bauthor').value;
+    let readStatus = document.querySelector('input[name="book_read"]').value;
+    let publishedDate = document.getElementById('ypub').value;
     return [bookName,authorName,readStatus,publishedDate];
 }
 

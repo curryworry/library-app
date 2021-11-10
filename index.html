@@ -16,6 +16,22 @@
         <h1>MY LIBRARY</h1>
     </div>
     <div id="app"></div>
+    <div id="modal">
+        <form>
+            <label for="bname">Book Name:</label><br>
+            <input type="text" id="bname" name="bname"><br>
+            <label for="bauthor">Author:</label><br>
+            <input type="text" id="bauthor" name="bauthor"><br>
+            <label for="ypub">Year Published:</label><br>
+            <input type="text" id="ypub" name="ypub"><br>
+            <p>Have you read this book?</p>
+            <input type="radio" id="yes" name="book_read" value="y">
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="book_read" value="n">
+            <label for="no">No</label><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
     <button id="add-btn">+</button>
     <div id="footer">&copy; Made for The Odin Project</div>
 </body>

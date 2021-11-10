@@ -9,19 +9,19 @@ let myLibrary = [
         name: "Steve Jobs",
         author: "Walter Isaacson",
         readStatus: "y",
-        publishedDate: "1997"
+        publishedDate: "2011"
     },
     {
-        name: "Harry Potter and the Philosopher's Stone",
-        author: "J. K. Rowling",
+        name: "Masters of Doom",
+        author: "David Kushner",
         readStatus: "y",
-        publishedDate: "1997"
+        publishedDate: "2003"
     },
     {
-        name: "Harry Potter and the Philosopher's Stone",
-        author: "J. K. Rowling",
+        name: "The Upstarts",
+        author: "Brad Stone",
         readStatus: "y",
-        publishedDate: "1997"
+        publishedDate: "2017"
     }
 ];
 let libraryDisplay = document.getElementById('app');

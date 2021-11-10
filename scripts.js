@@ -4,6 +4,24 @@ let myLibrary = [
         author: "J. K. Rowling",
         readStatus: "y",
         publishedDate: "1997"
+    },
+    {
+        name: "Steve Jobs",
+        author: "Walter Isaacson",
+        readStatus: "y",
+        publishedDate: "1997"
+    },
+    {
+        name: "Harry Potter and the Philosopher's Stone",
+        author: "J. K. Rowling",
+        readStatus: "y",
+        publishedDate: "1997"
+    },
+    {
+        name: "Harry Potter and the Philosopher's Stone",
+        author: "J. K. Rowling",
+        readStatus: "y",
+        publishedDate: "1997"
     }
 ];
 let libraryDisplay = document.getElementById('app');
@@ -40,6 +58,7 @@ function drawCard(bookName,authorName,readStatus,publishedDate){
     cardRead.textContent = readStatus;
     cardDate.textContent = publishedDate;
     card.classList.toggle('card');
+    cardTitle.classList.toggle('title');
     card.appendChild(cardTitle);
     card.appendChild(cardAuthor);
     card.appendChild(cardRead);

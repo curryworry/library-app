@@ -82,6 +82,7 @@ body{
     width: 100%;
     text-align: center;
     padding: 10px;
+    font-weight: 500;
 }
 
 #app{
@@ -102,6 +103,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #EEEEEE;
 }
 
 .title{

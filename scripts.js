@@ -1,22 +1,45 @@
-let myLibrary = [];
+let myLibrary = [
+    {
+        name: "Harry Potter and the Philosopher's Stone",
+        author: "J. K. Rowling",
+        readStatus: "y",
+        publishedDate: "1997"
+    }
+];
+let libraryDisplay = document.getElementById('app');
 function getUserInput(){
     let bookName = prompt("Enter Book Name");
     let authorName = prompt("Enter Author Name");
     let readStatus = prompt("Have you read this book? (y/n)");
-    return [bookName,authorName,readStatus];
+    let publishedDate = prompt("Which year was the book published?");
+    return [bookName,authorName,readStatus,publishedDate];
 }
 
-function Book(name,author,readStatus){
+function Book(name,author,readStatus,publishedDate){
     this.name = name;
     this.author = author;
     this.readStatus = readStatus;
+    this.publishedDate = publishedDate;
 }
 
 function addBookToLibrary(){
     let userInput = getUserInput();
-    let newBook = new Book(userInput[0],userInput[1],userInput[2]);
+    let newBook = new Book(userInput[0],userInput[1],userInput[2],userInput[3]);
     myLibrary.push(newBook);
     console.log(myLibrary);
+}
+
+function drawCard(bookName,authorName,readStatus,publishedDate){
+    let card = document.createElement('div');
+    let cardTitle = document.createElement('div');
+    let cardAuthor = document.createElement('div');
+    let cardRead = document.createElement('div');
+    let cardDate = document.createElement('div');
+
+}
+
+function displayLibrary(){
+    myLibrary.forEach((book)=>drawCard(book.name,book.author,book.readStatus,book.publishedDate));
 }
 
 addBook();

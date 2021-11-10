@@ -35,11 +35,20 @@ function drawCard(bookName,authorName,readStatus,publishedDate){
     let cardAuthor = document.createElement('div');
     let cardRead = document.createElement('div');
     let cardDate = document.createElement('div');
-
+    cardTitle.textContent = bookName;
+    cardAuthor.textContent = authorName;
+    cardRead.textContent = readStatus;
+    cardDate.textContent = publishedDate;
+    card.classList.toggle('card');
+    card.appendChild(cardTitle);
+    card.appendChild(cardAuthor);
+    card.appendChild(cardRead);
+    card.appendChild(cardDate);
+    libraryDisplay.appendChild(card);
 }
 
 function displayLibrary(){
     myLibrary.forEach((book)=>drawCard(book.name,book.author,book.readStatus,book.publishedDate));
 }
 
-addBook();
+displayLibrary();

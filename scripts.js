@@ -42,9 +42,18 @@ function getUserInput(e){
     let bookName = document.getElementById('bname').value;
     console.log(bookName);
     let authorName = document.getElementById('bauthor').value;
-    let readStatus = document.querySelector('input[name="book_read"]').value;
+    let readStatus = document.querySelector('input[name="book_read"]:checked').value;
+    console.log(readStatus);
     let publishedDate = document.getElementById('ypub').value;
+    resetForm();
     return [bookName,authorName,readStatus,publishedDate];
+}
+
+function resetForm(){
+    document.getElementById('bname').value = '';
+    document.getElementById('bauthor').value = '';
+    document.querySelector('input[name="book_read"]:checked').value = '';
+    document.getElementById('ypub').value = '';
 }
 
 function Book(name,author,readStatus,publishedDate){

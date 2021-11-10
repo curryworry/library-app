@@ -20,18 +20,28 @@
         <div id="modal-content">
             <span class="close">&times;</span>
             <form>
-                <label for="bname">Book Name:</label><br>
-                <input type="text" id="bname" name="bname"><br>
-                <label for="bauthor">Author:</label><br>
-                <input type="text" id="bauthor" name="bauthor"><br>
-                <label for="ypub">Year Published:</label><br>
-                <input type="text" id="ypub" name="ypub"><br>
-                <p>Have you read this book?</p>
-                <input type="radio" id="yes" name="book_read" value="y">
-                <label for="yes">Yes</label>
-                <input type="radio" id="no" name="book_read" value="n">
-                <label for="no">No</label><br>
-                <input type="submit" value="Submit">
+                <div>
+                    <label for="bname">Book Name:</label>
+                    <input type="text" id="bname" name="bname">
+                </div>
+                <div>
+                    <label for="bauthor">Author:</label>
+                    <input type="text" id="bauthor" name="bauthor">
+                </div>
+                <div>
+                    <label for="ypub">Year Published:</label>
+                    <input type="text" id="ypub" name="ypub">
+                </div>
+                <div>
+                    <p>Have you read this book?</p>
+                    <div>
+                        <input type="radio" id="yes" name="book_read" value="y">
+                        <label for="yes">Yes</label>
+                        <input type="radio" id="no" name="book_read" value="n">
+                        <label for="no">No</label><br>
+                    </div>
+                </div>
+                <input type="submit" value="Submit" id="submit">
             </form>
         </div>
     </div>

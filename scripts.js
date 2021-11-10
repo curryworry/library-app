@@ -1,3 +1,4 @@
+let libraryDisplay = document.getElementById('app');
 let myLibrary = [
     {
         name: "Harry Potter and the Philosopher's Stone",
@@ -24,7 +25,8 @@ let myLibrary = [
         publishedDate: "2017"
     }
 ];
-let libraryDisplay = document.getElementById('app');
+
+
 function getUserInput(){
     let bookName = prompt("Enter Book Name");
     let authorName = prompt("Enter Author Name");

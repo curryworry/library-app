@@ -97,7 +97,7 @@ body{
     border-radius: 10px 10px 10px 10px;
     border: 1px solid black;
     padding: 10px;
-    height: 100px;
+    height: 150px;
     width: 300px;
     box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
     display: flex;
@@ -108,5 +108,26 @@ body{
 
 .title{
     font-weight: 700;
+    font-size: 20px;
     text-align: center;
 }
+
+#add-btn {
+  height: 50px;
+  width: 50px;  
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  border-color: #4CAF50;
+  position: fixed;
+  bottom: 50px;
+  right: 25px;
+}
+#add-btn:hover {
+	background-color:#5cbf2a;
+}
+

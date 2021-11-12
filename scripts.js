@@ -58,14 +58,11 @@ function Book(name,author,readStatus,publishedDate,isbn){
 
 Book.prototype.toggleRead = function(){
     this.readStatus=="y" ? this.readStatus = "n" : this.readStatus = "y"; 
-    console.log(this.readStatus);
 }
 
 /* Functions */
 
 function toggleReadStatus(e){
-    console.log(e);
-    let newReadStatus = e.target.checked;
     let boxIsbn = e.target.dataset.isbn;
     let targetBook = myLibrary.find(element=>element.isbn==boxIsbn);
     targetBook.toggleRead();
@@ -74,10 +71,8 @@ function toggleReadStatus(e){
 function getUserInput(e){
     e.preventDefault();
     let bookName = document.getElementById('bname').value;
-    console.log(bookName);
     let authorName = document.getElementById('bauthor').value;
     let readStatus = document.querySelector('input[name="book_read"]:checked').value;
-    console.log(readStatus);
     let publishedDate = document.getElementById('ypub').value;
     let isbn = document.getElementById('isbn').value;
     resetForm();
@@ -128,7 +123,6 @@ function drawCard(bookName,authorName,readStatus,publishedDate,isbn){
     cardReadLabel.for = `cb-${isbn}`;
     cardReadLabel.textContent = "Book read?";
     cardReadLabel.classList.toggle('read-label');
-    //cardRead.textContent = readStatus;
     cardDate.textContent = publishedDate;
     cardIsbn.textContent = isbn;
     card.classList.toggle('card');

@@ -144,11 +144,8 @@ function drawCard(bookName,authorName,readStatus,publishedDate,isbn){
 }
 
 function checkBookRead(isbn){
-    myLibrary.forEach((book)=>{
-        if(book.isbn==isbn){
-           return book.readStatus == "y" ?  true : false;
-        }
-    });
+    let targetBook = myLibrary.find((book)=>book.isbn==isbn);
+    return targetBook.readStatus == "y" ?  true : false;
 }
 
 function displayLibrary(){

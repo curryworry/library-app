@@ -194,3 +194,17 @@ body{
   p{
       margin-bottom: 10px;
   }
+
+  .read-checkbox{
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 2px;
+  }
+
+  .read-label{
+      padding-right: 2px;
+      font-size: 12px;
+      color: rgb(255, 195, 85);
+  }

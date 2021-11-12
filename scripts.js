@@ -83,20 +83,31 @@ function drawCard(bookName,authorName,readStatus,publishedDate,isbn){
     let cardTitle = document.createElement('div');
     let cardAuthor = document.createElement('div');
     let cardRead = document.createElement('div');
+    let cardReadCheckbox = document.createElement('input');
+    let cardReadLabel = document.createElement('label');
     let cardDate = document.createElement('div');
     let cardIsbn = document.createElement('div');
     cardTitle.textContent = bookName;
+    cardRead.classList.toggle('read-checkbox');
     cardAuthor.textContent = authorName;
-    cardRead.textContent = readStatus;
+    cardReadCheckbox.type = "checkbox";
+    cardReadCheckbox.name = `cb-${isbn}`;
+    cardReadCheckbox.value = 'y';
+    cardReadLabel.for = `cb-${isbn}`;
+    cardReadLabel.textContent = "Mark as read";
+    cardReadLabel.classList.toggle('read-label');
+    //cardRead.textContent = readStatus;
     cardDate.textContent = publishedDate;
     cardIsbn.textContent = isbn;
     card.classList.toggle('card');
     cardTitle.classList.toggle('title');
+    cardRead.appendChild(cardReadCheckbox);
+    cardRead.appendChild(cardReadLabel);
     card.appendChild(cardTitle);
     card.appendChild(cardAuthor);
-    card.appendChild(cardRead);
     card.appendChild(cardDate);
     card.appendChild(cardIsbn);
+    card.appendChild(cardRead);
     libraryDisplay.appendChild(card);
 }
 

@@ -4,8 +4,6 @@ let libraryDisplay = document.getElementById('app');
 
 let formSubmit = document.querySelector('input[type=submit]');
 
-let checkBoxes = document.querySelectorAll('input[type=checkbox]');
-
 let initialValues = [
     {
         name: "Harry Potter and the Philosopher's Stone",
@@ -43,9 +41,7 @@ let myLibrary = [];
 
 formSubmit.addEventListener('click',addBookToLibrary);
 
-checkBoxes.forEach((checkBox)=>{
-    checkBox.addEventListener('click',toggleReadStatus);
-})
+
 
 
 /* Object Prototype */
@@ -67,6 +63,7 @@ Book.prototype.toggleRead = function(){
 
 function toggleReadStatus(e){
     console.log('function not written');
+    console.log(e);
 }
 
 function getUserInput(e){
@@ -163,6 +160,12 @@ function initializeLibrary(){
 }
 
 initializeLibrary();
+
+let checkBoxes = document.querySelectorAll("input[type='checkbox']");
+
+checkBoxes.forEach((checkBox)=>{
+    checkBox.addEventListener('input',toggleReadStatus);
+})
 
 /* Modal Operation */
 

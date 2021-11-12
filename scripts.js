@@ -102,8 +102,14 @@ function drawCard(bookName,authorName,readStatus,publishedDate,isbn){
     cardReadCheckbox.type = "checkbox";
     cardReadCheckbox.name = `cb-${isbn}`;
     cardReadCheckbox.value = 'y';
+    if(checkBookRead){
+        cardReadCheckbox.checked = true;
+    }
+    else{
+        cardReadCheckbox.checked = false;
+    }
     cardReadLabel.for = `cb-${isbn}`;
-    cardReadLabel.textContent = "Mark as read";
+    cardReadLabel.textContent = "Book read?";
     cardReadLabel.classList.toggle('read-label');
     //cardRead.textContent = readStatus;
     cardDate.textContent = publishedDate;

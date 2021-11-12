@@ -120,6 +120,14 @@ function drawCard(bookName,authorName,readStatus,publishedDate,isbn){
     libraryDisplay.appendChild(card);
 }
 
+function checkBookRead(isbn){
+    myLibrary.forEach((book)=>{
+        if(book.isbn==isbn){
+           return book.readStatus == "y" ?  true : false;
+        }
+    });
+}
+
 function displayLibrary(){
     libraryDisplay.innerHTML="";
     myLibrary.forEach((book)=>drawCard(book.name,book.author,book.readStatus,book.publishedDate,book.isbn));

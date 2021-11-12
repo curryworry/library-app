@@ -4,7 +4,9 @@ let libraryDisplay = document.getElementById('app');
 
 let formSubmit = document.querySelector('input[type=submit]');
 
-let myLibrary = [
+let checkBoxes = document.querySelectorAll('input[type=checkbox]');
+
+let initialValues = [
     {
         name: "Harry Potter and the Philosopher's Stone",
         author: "J. K. Rowling",
@@ -35,9 +37,16 @@ let myLibrary = [
     }
 ];
 
+let myLibrary = [];
+
 /* Event Listeners */
 
 formSubmit.addEventListener('click',addBookToLibrary);
+
+checkBoxes.forEach((checkBox)=>{
+    checkBox.addEventListener('click',toggleReadStatus);
+})
+
 
 /* Object Prototype */
 
@@ -55,6 +64,10 @@ Book.prototype.toggleRead = function(){
 }
 
 /* Functions */
+
+function toggleReadStatus(e){
+    console.log('function not written');
+}
 
 function getUserInput(e){
     e.preventDefault();
@@ -139,7 +152,15 @@ function displayLibrary(){
     myLibrary.forEach((book)=>drawCard(book.name,book.author,book.readStatus,book.publishedDate,book.isbn));
 }
 
-displayLibrary();
+function initializeLibrary(){
+    initialValues.forEach((value)=>{
+        let newBook = new Book(value.name,value.author,value.readStatus,value.publishedDate,value.isbn);
+    myLibrary.push(newBook);
+    });
+    displayLibrary();
+}
+
+initializeLibrary();
 
 /* Modal Operation */
 

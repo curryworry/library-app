@@ -39,6 +39,21 @@ let myLibrary = [
 
 formSubmit.addEventListener('click',addBookToLibrary);
 
+/* Object Prototype */
+
+function Book(name,author,readStatus,publishedDate,isbn){
+    this.name = name;
+    this.author = author;
+    this.readStatus = readStatus;
+    this.publishedDate = publishedDate;
+    this.isbn = isbn;
+}
+
+Book.prototype.toggleRead = function(){
+    this.readStatus=="y" ? this.readStatus = "n" : this.readStatus = "y"; 
+    console.log(this.readStatus);
+}
+
 /* Functions */
 
 function getUserInput(e){
@@ -51,7 +66,7 @@ function getUserInput(e){
     let publishedDate = document.getElementById('ypub').value;
     let isbn = document.getElementById('isbn').value;
     resetForm();
-    return [bookName,authorName,readStatus,publishedDate];
+    return [bookName,authorName,readStatus,publishedDate,isbn];
 }
 
 function resetForm(){
@@ -62,13 +77,7 @@ function resetForm(){
     document.getElementById('isbn').value='';
 }
 
-function Book(name,author,readStatus,publishedDate,isbn){
-    this.name = name;
-    this.author = author;
-    this.readStatus = readStatus;
-    this.publishedDate = publishedDate;
-    this.isbn = isbn;
-}
+
 
 function addBookToLibrary(e){
     let userInput = getUserInput(e);

@@ -4,6 +4,8 @@ let libraryDisplay = document.getElementById('app');
 
 let formSubmit = document.querySelector('input[type=submit]');
 
+let checkBoxes;
+
 let initialValues = [
     {
         name: "Harry Potter and the Philosopher's Stone",
@@ -62,8 +64,11 @@ Book.prototype.toggleRead = function(){
 /* Functions */
 
 function toggleReadStatus(e){
-    console.log('function not written');
     console.log(e);
+    let newReadStatus = e.target.checked;
+    let boxIsbn = e.target.dataset.isbn;
+    let targetBook = myLibrary.find(element=>element.isbn==boxIsbn);
+    targetBook.toggleRead();
 }
 
 function getUserInput(e){
@@ -114,7 +119,7 @@ function drawCard(bookName,authorName,readStatus,publishedDate,isbn){
     cardReadCheckbox.name = `cb-${isbn}`;
     cardReadCheckbox.setAttribute('data-isbn',isbn);
     cardReadCheckbox.value = 'y';
-    if(checkBookRead){
+    if(checkBookRead(isbn)){
         cardReadCheckbox.checked = true;
     }
     else{
@@ -149,6 +154,12 @@ function checkBookRead(isbn){
 function displayLibrary(){
     libraryDisplay.innerHTML="";
     myLibrary.forEach((book)=>drawCard(book.name,book.author,book.readStatus,book.publishedDate,book.isbn));
+    checkBoxes = document.querySelectorAll("input[type='checkbox']");
+
+    checkBoxes.forEach((checkBox)=>{
+    checkBox.addEventListener('input',toggleReadStatus);
+});
+
 }
 
 function initializeLibrary(){
@@ -161,11 +172,6 @@ function initializeLibrary(){
 
 initializeLibrary();
 
-let checkBoxes = document.querySelectorAll("input[type='checkbox']");
-
-checkBoxes.forEach((checkBox)=>{
-    checkBox.addEventListener('input',toggleReadStatus);
-})
 
 /* Modal Operation */
 

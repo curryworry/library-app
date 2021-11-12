@@ -109,11 +109,13 @@ function drawCard(bookName,authorName,readStatus,publishedDate,isbn){
     let cardReadLabel = document.createElement('label');
     let cardDate = document.createElement('div');
     let cardIsbn = document.createElement('div');
+    card.setAttribute('data-isbn',isbn);
     cardTitle.textContent = bookName;
     cardRead.classList.toggle('read-checkbox');
     cardAuthor.textContent = authorName;
     cardReadCheckbox.type = "checkbox";
     cardReadCheckbox.name = `cb-${isbn}`;
+    cardReadCheckbox.setAttribute('data-isbn',isbn);
     cardReadCheckbox.value = 'y';
     if(checkBookRead){
         cardReadCheckbox.checked = true;

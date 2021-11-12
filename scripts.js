@@ -59,6 +59,7 @@ function resetForm(){
     document.getElementById('bauthor').value = '';
     document.querySelector('input[name="book_read"]:checked').value = '';
     document.getElementById('ypub').value = '';
+    document.getElementById('isbn').value='';
 }
 
 function Book(name,author,readStatus,publishedDate,isbn){
@@ -77,29 +78,31 @@ function addBookToLibrary(e){
     closeModal();
 }
 
-function drawCard(bookName,authorName,readStatus,publishedDate){
+function drawCard(bookName,authorName,readStatus,publishedDate,isbn){
     let card = document.createElement('div');
     let cardTitle = document.createElement('div');
     let cardAuthor = document.createElement('div');
     let cardRead = document.createElement('div');
-    
     let cardDate = document.createElement('div');
+    let cardIsbn = document.createElement('div');
     cardTitle.textContent = bookName;
     cardAuthor.textContent = authorName;
     cardRead.textContent = readStatus;
     cardDate.textContent = publishedDate;
+    cardIsbn.textContent = isbn;
     card.classList.toggle('card');
     cardTitle.classList.toggle('title');
     card.appendChild(cardTitle);
     card.appendChild(cardAuthor);
     card.appendChild(cardRead);
     card.appendChild(cardDate);
+    card.appendChild(cardIsbn);
     libraryDisplay.appendChild(card);
 }
 
 function displayLibrary(){
     libraryDisplay.innerHTML="";
-    myLibrary.forEach((book)=>drawCard(book.name,book.author,book.readStatus,book.publishedDate));
+    myLibrary.forEach((book)=>drawCard(book.name,book.author,book.readStatus,book.publishedDate,book.isbn));
 }
 
 displayLibrary();

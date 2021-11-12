@@ -9,25 +9,29 @@ let myLibrary = [
         name: "Harry Potter and the Philosopher's Stone",
         author: "J. K. Rowling",
         readStatus: "y",
-        publishedDate: "1997"
+        publishedDate: "1997",
+        isbn: "9780747532743"
     },
     {
         name: "Steve Jobs",
         author: "Walter Isaacson",
         readStatus: "y",
-        publishedDate: "2011"
+        publishedDate: "2011",
+        isbn: "9781451648546"
     },
     {
         name: "Masters of Doom",
         author: "David Kushner",
         readStatus: "y",
-        publishedDate: "2003"
+        publishedDate: "2003",
+        isbn: "9780749924751"
     },
     {
         name: "The Upstarts",
         author: "Brad Stone",
         readStatus: "y",
-        publishedDate: "2017"
+        publishedDate: "2017",
+        isbn: "9780316388412"
     }
 ];
 
@@ -45,6 +49,7 @@ function getUserInput(e){
     let readStatus = document.querySelector('input[name="book_read"]:checked').value;
     console.log(readStatus);
     let publishedDate = document.getElementById('ypub').value;
+    let isbn = document.getElementById('isbn').value;
     resetForm();
     return [bookName,authorName,readStatus,publishedDate];
 }
@@ -56,16 +61,17 @@ function resetForm(){
     document.getElementById('ypub').value = '';
 }
 
-function Book(name,author,readStatus,publishedDate){
+function Book(name,author,readStatus,publishedDate,isbn){
     this.name = name;
     this.author = author;
     this.readStatus = readStatus;
     this.publishedDate = publishedDate;
+    this.isbn = isbn;
 }
 
 function addBookToLibrary(e){
     let userInput = getUserInput(e);
-    let newBook = new Book(userInput[0],userInput[1],userInput[2],userInput[3]);
+    let newBook = new Book(userInput[0],userInput[1],userInput[2],userInput[3],userInput[4]);
     myLibrary.push(newBook);
     displayLibrary();
     closeModal();
@@ -76,6 +82,7 @@ function drawCard(bookName,authorName,readStatus,publishedDate){
     let cardTitle = document.createElement('div');
     let cardAuthor = document.createElement('div');
     let cardRead = document.createElement('div');
+    
     let cardDate = document.createElement('div');
     cardTitle.textContent = bookName;
     cardAuthor.textContent = authorName;

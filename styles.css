@@ -212,6 +212,7 @@ body{
   .card-top{
       display: flex;
       justify-content: space-between;
+      align-items: center;
   }
 
   .close-card{
@@ -224,4 +225,5 @@ body{
 
   .close-card:hover{
     color: rgb(255, 195, 85);
+    transform:scale(1.5);
   }

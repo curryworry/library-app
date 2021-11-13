@@ -63,6 +63,7 @@ function toggleReadStatus(e) {
   let boxIsbn = e.target.dataset.isbn;
   let targetBook = myLibrary.find((element) => element.isbn == boxIsbn);
   targetBook.toggleRead();
+  updateLocalStorage();
 }
 
 function getUserInput(e) {

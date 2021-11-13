@@ -163,20 +163,14 @@ function displayLibrary(){
     removeBookIcons.forEach((icon)=>{
         icon.addEventListener('click',removeBook);
     });
-   // console.log(removeBookIcons);
-
 }
 
 function removeBook(e){
     let parentDiv = e.target.parentNode.parentNode;
     let isbn = parentDiv.dataset.isbn;
-    console.log(isbn);
     let targetBook = myLibrary.find((book)=>book.isbn==isbn);
-    console.log(targetBook);
     let bookIndex = myLibrary.indexOf(targetBook);
-    console.log(bookIndex);
     myLibrary.splice(bookIndex,1);
-    console.log(myLibrary);
     displayLibrary();
 }
 

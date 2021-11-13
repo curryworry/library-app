@@ -99,7 +99,9 @@ function addBookToLibrary(e){
 
 function drawCard(bookName,authorName,readStatus,publishedDate,isbn){
     let card = document.createElement('div');
+    let cardTop = document.createElement('div');
     let cardTitle = document.createElement('div');
+    let cardClose = document.createElement('span');
     let cardAuthor = document.createElement('div');
     let cardRead = document.createElement('div');
     let cardReadCheckbox = document.createElement('input');
@@ -107,6 +109,9 @@ function drawCard(bookName,authorName,readStatus,publishedDate,isbn){
     let cardDate = document.createElement('div');
     let cardIsbn = document.createElement('div');
     card.setAttribute('data-isbn',isbn);
+    cardTop.classList.toggle('card-top');
+    cardClose.classList.toggle('close-card');
+    cardClose.innerHTML = "&times;";
     cardTitle.textContent = bookName;
     cardRead.classList.toggle('read-checkbox');
     cardAuthor.textContent = authorName;
@@ -129,7 +134,9 @@ function drawCard(bookName,authorName,readStatus,publishedDate,isbn){
     cardTitle.classList.toggle('title');
     cardRead.appendChild(cardReadCheckbox);
     cardRead.appendChild(cardReadLabel);
-    card.appendChild(cardTitle);
+    cardTop.appendChild(cardTitle);
+    cardTop.appendChild(cardClose);
+    card.appendChild(cardTop);
     card.appendChild(cardAuthor);
     card.appendChild(cardDate);
     card.appendChild(cardIsbn);
@@ -149,8 +156,28 @@ function displayLibrary(){
 
     checkBoxes.forEach((checkBox)=>{
     checkBox.addEventListener('input',toggleReadStatus);
-});
+    });
 
+    removeBookIcons = document.querySelectorAll("span[class='close-card']");
+
+    removeBookIcons.forEach((icon)=>{
+        icon.addEventListener('click',removeBook);
+    });
+   // console.log(removeBookIcons);
+
+}
+
+function removeBook(e){
+    let parentDiv = e.target.parentNode.parentNode;
+    let isbn = parentDiv.dataset.isbn;
+    console.log(isbn);
+    let targetBook = myLibrary.find((book)=>book.isbn==isbn);
+    console.log(targetBook);
+    let bookIndex = myLibrary.indexOf(targetBook);
+    console.log(bookIndex);
+    myLibrary.splice(bookIndex,1);
+    console.log(myLibrary);
+    displayLibrary();
 }
 
 function initializeLibrary(){

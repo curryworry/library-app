@@ -208,3 +208,16 @@ body{
       font-size: 12px;
       color: rgb(255, 195, 85);
   }
+
+  .card-top{
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .close-card{
+    color: #aaa;
+    /* float: right; */
+    font-size: 18px;
+    /* font-weight: bold; */
+    cursor: pointer;
+  }
